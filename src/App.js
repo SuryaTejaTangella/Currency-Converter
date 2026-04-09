@@ -29,7 +29,7 @@ export default function App() {
 
         if (!debouncedAmount || debouncedAmount <= 0) {
           setConverted("");
-          setError("Please enter a valid amount");
+          setError("Invalid Amount");
           return;
         }
 
@@ -96,7 +96,13 @@ export default function App() {
         Output :
         <span style={{ fontWeight: 600 }}>
           {" "}
-          {isLoading ? "Converting..." : error ? error : converted}{" "}
+          {isLoading ? (
+            "Converting..."
+          ) : error ? (
+            <span style={{ color: "red" }}> {error}</span>
+          ) : (
+            converted
+          )}{" "}
         </span>{" "}
         {toCur}
       </p>
